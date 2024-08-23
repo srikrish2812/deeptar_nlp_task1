@@ -217,7 +217,10 @@ class StatisticAnalyzer:
         
         print("Aggregate statistics saved to statistics directory")
         
-def main():         
+def main():
+    """
+    instantiating the classes and calling appropriate functions
+    """      
     health_scraper = WebsiteScraper(base_url='https://www.nhs.uk')
     scraped_content = health_scraper.scrape_pages(letter_index=1)
 
