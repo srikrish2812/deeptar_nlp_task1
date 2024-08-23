@@ -198,7 +198,7 @@ class StatisticAnalyzer:
             self.statistics.append(each_text_stats)
         return self.statistics
     
-    def save_stats(self, output_file='./statistics/nlp_stats.csv'):
+    def save_stats(self, output_file='../statistics/nlp_stats.csv'):
         """
         Saves the statistics of all texts
         Args:
@@ -209,7 +209,7 @@ class StatisticAnalyzer:
         
         print("Successfully saved statistic to statistics directory")
         
-    def aggregate_stats(self, output_file = './statistics/aggregate_stats.csv' ):
+    def aggregate_stats(self, output_file = '../statistics/aggregate_stats.csv' ):
         df = pd.DataFrame(self.statistics)
         aggregated_statistics = df.mean().to_dict()
         aggregated_statistics_df = pd.DataFrame([aggregated_statistics])
@@ -223,8 +223,8 @@ def main():
 
     text_analyzer = StatisticAnalyzer(scraped_content, health_scraper.page_nums)
     text_analyzer.analyze_texts()
-    text_analyzer.save_stats(output_file='../statistics/nlp_stats.csv')
-    text_analyzer.aggregate_stats(output_file = '../statistics/aggregate_stats.csv')    
+    text_analyzer.save_stats(output_file='./statistics/nlp_stats.csv')
+    text_analyzer.aggregate_stats(output_file = './statistics/aggregate_stats.csv')    
 
 if __name__=="__main__":
     main()
