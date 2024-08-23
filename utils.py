@@ -2,6 +2,21 @@ import nltk
 from nltk import sent_tokenize, word_tokenize, pos_tag
 
 def analyze_each_text(text):
+    """
+    Analyzes a single text string corresponding to each page to compute various statistics like
+    sentence count, word count, noun and verb count and average word length
+        
+    Args:
+        text (str): The text string that needs to be analyzed
+
+    Returns:
+        dict: Dictionary of statistics
+            - num_sentences(int): Number of sentences in the text
+            - num_words(int): Number of words in the text
+            - num_verbs(int): Number of verbs in the text
+            - num_nouns(int): number of nouns in the text
+            - average_word_length(float): average length of words in the text          
+    """
     sentences = sent_tokenize(text)
     words = word_tokenize(text)
     pos_tags = pos_tag(words)

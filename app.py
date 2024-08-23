@@ -9,11 +9,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    """
+    Renders the home page of the website
+    """
     return render_template('index.html')
 
 
 @app.route('/analyze_input', methods=["POST"])
 def analyzer():
+    """
+    analyzes the input text written, compares it with the aggregated results
+    and displays the results in a new webpage
+    """
     input_txt = request.form.get('input_text')
     
     aggregated_statistics = pd.read_csv('./statistics/aggregate_stats.csv').to_dict(orient='records')[0] 
